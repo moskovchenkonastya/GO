@@ -23,7 +23,6 @@ func main() {
         fmt.Println(err)
         os.Exit(1)
     }
-
     inFile := os.Stdin
 
     if inFilename != "" {
@@ -35,7 +34,6 @@ func main() {
 
     count := CountOfLines(inFile)
     fmt.Println(count)
-
 }
 
 // Reading the file name on the command line
@@ -47,7 +45,6 @@ func filenameFromCommandLine() (inFilename string, err error) {
     if inFilename == "" {
         log.Fatal("Won't overwrite the infile")
     }
-
     return inFilename, nil
 }
 
@@ -68,7 +65,6 @@ func CountOfLines(inFile io.Reader) (int) {
         log.Fatal("Failed to finish reading the file: ", err)
         }
     }
-
     return i
 }
 
