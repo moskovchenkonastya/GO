@@ -1,3 +1,9 @@
+// Project by Moskovchenko Nastya
+// Counter of lines in the file
+// 
+// The program takes the name of the file in a command-line.
+// Then it reads the data from the file and counts the number of lines.
+
 package main
 
 import (
@@ -11,7 +17,6 @@ import (
 )
 
 func main() {
-
 
     inFilename, err := filenameFromCommandLine()
     if err != nil {
@@ -33,20 +38,20 @@ func main() {
 
 }
 
+// Reading the file name on the command line
 func filenameFromCommandLine() (inFilename string, err error) {
-
 
     if len(os.Args) > 1 {
         inFilename = os.Args[1]
     }   
-
     if inFilename == "" {
-        log.Fatal("won't overwrite the infile")
+        log.Fatal("Won't overwrite the infile")
     }
 
     return inFilename, nil
 }
 
+// Count lines in the file
 func CountOfLines(inFile io.Reader) (int) {
     var err error
     reader := bufio.NewReader(inFile)
@@ -60,7 +65,7 @@ func CountOfLines(inFile io.Reader) (int) {
             if err == io.EOF {
                 break
             }
-        log.Fatal("failed to finish reading the file: ", err)
+        log.Fatal("Failed to finish reading the file: ", err)
         }
     }
 
