@@ -17,7 +17,8 @@ import (
 )
 
 func main() {
-
+    
+//Reading the file name on the command line
     inFilename, err := filenameFromCommandLine()
     if err != nil {
         fmt.Println(err)
@@ -31,7 +32,8 @@ func main() {
         }
         defer inFile.Close()
     }
-
+    
+// сount of lines
     count := CountOfLines(inFile)
     fmt.Println(count)
 }
@@ -50,10 +52,12 @@ func filenameFromCommandLine() (inFilename string, err error) {
 
 // Count lines in the file
 func CountOfLines(inFile io.Reader) (int) {
+    
     var err error
     reader := bufio.NewReader(inFile)
     i := 0
     eof := false
+    
     for ;!eof ; i++{
         var line string
         line, err = reader.ReadString('\n')
